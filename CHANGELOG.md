@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/dreamiurg/nato/compare/v1.0.0...v1.1.0) (2026-01-24)
+
+
+### Features
+
+* add Dependabot auto-merge with CI workflow ([9154fbc](https://github.com/dreamiurg/nato/commit/9154fbcefc9d038730b97a336b7fcad9b7ed081d))
+* add enhanced color modes with sticky colors and contrast-aware adjacency ([62f5416](https://github.com/dreamiurg/nato/commit/62f5416cebbbe948d8d2c459055c40359a24ffce))
+
 ## 1.0.0 (2026-01-24)
 
 
