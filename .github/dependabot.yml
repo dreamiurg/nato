@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "03:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+
+    labels:
+      - "dependencies"
+      - "go"
+
+    groups:
+      golang-org-x:
+        patterns:
+          - "golang.org/x/*"
+
+      minor-and-patch:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "golang.org/x/*"
+        update-types:
+          - "minor"
+          - "patch"

@@ -88,6 +88,12 @@ Or wait 24 hours for the scheduled run.
 1. Go to repository Settings
 2. Under "Pull Requests", check "Allow auto-merge"
 
+```bash
+# Verify via CLI (after enabling in UI)
+gh api repos/dreamiurg/nato --jq '.allow_auto_merge'
+# Expected: true
+```
+
 ### Branch Protection Rule
 
 1. Settings → Branches → Add rule
@@ -96,4 +102,26 @@ Or wait 24 hours for the scheduled run.
    - [x] Require a pull request before merging
    - [x] Require status checks to pass before merging
    - [x] Require branches to be up to date before merging
-4. Add required status check: (your CI job name)
+4. Add required status check: `test` (from ci.yml workflow)
+
+```bash
+# Verify branch protection via CLI
+gh api repos/dreamiurg/nato/branches/main/protection --jq '.required_status_checks.contexts'
+# Expected: ["test"]
+```
+
+### Post-Merge Verification
+
+After merging the configuration files to main:
+
+```bash
+# 1. Verify CI workflow exists
+gh workflow list | grep -E "^CI"
+
+# 2. Verify Dependabot workflow exists
+gh workflow list | grep -i dependabot
+
+# 3. Check Dependabot status (GitHub UI)
+# Navigate to: Insights → Dependency graph → Dependabot
+# Expected: "gomod" ecosystem with daily schedule
+```
