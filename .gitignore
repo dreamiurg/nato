@@ -16,3 +16,9 @@ vendor/
 
 # Build
 dist/
+
+# Gas Town (added by gt)
+.runtime/
+.claude/
+.beads/
+.logs/
