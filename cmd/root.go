@@ -16,6 +16,7 @@ import (
 var (
 	alphabetName  string
 	noColor       bool
+	colorMode     string
 	listAlphabets bool
 	version       = "dev"
 )
@@ -37,6 +38,7 @@ Examples:
 func init() {
 	rootCmd.Flags().StringVarP(&alphabetName, "alphabet", "a", "nato", "phonetic alphabet to use")
 	rootCmd.Flags().BoolVar(&noColor, "no-color", false, "disable colored output")
+	rootCmd.Flags().StringVar(&colorMode, "color-mode", "word", "color mode: 'word' (full word) or 'letter' (first char only)")
 	rootCmd.Flags().BoolVarP(&listAlphabets, "list-alphabets", "l", false, "list available alphabets")
 }
 
@@ -81,7 +83,7 @@ func run(cmd *cobra.Command, args []string) error {
 	words := converter.Convert(text, alpha)
 
 	// Format output
-	formatter := output.NewFormatter(noColor)
+	formatter := output.NewFormatter(noColor, output.ColorMode(colorMode))
 	formatter.Print(words)
 
 	return nil
