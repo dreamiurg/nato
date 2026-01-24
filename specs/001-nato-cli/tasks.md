@@ -19,11 +19,11 @@
 
 **Purpose**: Project initialization and Go module setup
 
-- [ ] T001 Initialize Go module with `go mod init github.com/dreamiurg/nato` in go.mod
-- [ ] T002 [P] Create project directory structure: cmd/, internal/alphabet/, internal/converter/, internal/output/, testdata/
-- [ ] T003 [P] Add Cobra dependency with `go get github.com/spf13/cobra@latest`
-- [ ] T004 [P] Add fatih/color dependency with `go get github.com/fatih/color@latest`
-- [ ] T005 Create minimal main.go that calls cmd.Execute()
+- [x] T001 Initialize Go module with `go mod init github.com/dreamiurg/nato` in go.mod
+- [x] T002 [P] Create project directory structure: cmd/, internal/alphabet/, internal/converter/, internal/output/, testdata/
+- [x] T003 [P] Add Cobra dependency with `go get github.com/spf13/cobra@latest`
+- [x] T004 [P] Add fatih/color dependency with `go get github.com/fatih/color@latest`
+- [x] T005 Create minimal main.go that calls cmd.Execute()
 
 ---
 
@@ -33,11 +33,11 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Define Alphabet struct (Name, DisplayName, Description, Letters, Digits maps) in internal/alphabet/types.go
-- [ ] T007 Define ConversionResult struct (Original, Phonetic, IsSpace, IsUnknown) in internal/converter/types.go
-- [ ] T008 Implement alphabet registry with Get(name) and List() functions in internal/alphabet/registry.go
-- [ ] T009 Add NATO alphabet data (A-Z letters + 0-9 digits) to internal/alphabet/nato.go
-- [ ] T010 Create Cobra root command skeleton with Execute() in cmd/root.go
+- [x] T006 Define Alphabet struct (Name, DisplayName, Description, Letters, Digits maps) in internal/alphabet/types.go
+- [x] T007 Define ConversionResult struct (Original, Phonetic, IsSpace, IsUnknown) in internal/converter/types.go
+- [x] T008 Implement alphabet registry with Get(name) and List() functions in internal/alphabet/registry.go
+- [x] T009 Add NATO alphabet data (A-Z letters + 0-9 digits) to internal/alphabet/nato.go
+- [x] T010 Create Cobra root command skeleton with Execute() in cmd/root.go
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -51,20 +51,20 @@
 
 ### Tests for User Story 1
 
-- [ ] T011 [P] [US1] Unit tests for alphabet lookup (all A-Z, 0-9) in internal/alphabet/alphabet_test.go
-- [ ] T012 [P] [US1] Unit tests for converter (words, numbers, mixed case, special chars) in internal/converter/converter_test.go
+- [x] T011 [P] [US1] Unit tests for alphabet lookup (all A-Z, 0-9) in internal/alphabet/alphabet_test.go
+- [x] T012 [P] [US1] Unit tests for converter (words, numbers, mixed case, special chars) in internal/converter/converter_test.go
 
 ### Implementation for User Story 1
 
-- [ ] T013 [US1] Implement Convert(text, alphabetName) function in internal/converter/converter.go
-- [ ] T014 [US1] Add case-insensitive character normalization in converter
-- [ ] T015 [US1] Implement word boundary detection (spaces create output groupings) in converter
-- [ ] T016 [US1] Handle non-letter characters (skip silently) in converter
-- [ ] T017 [US1] Wire converter to Cobra command args in cmd/root.go
-- [ ] T018 [US1] Implement plain-text output formatter in internal/output/formatter.go
-- [ ] T019 [US1] Add integration test for CLI invocation in cmd/root_test.go
+- [x] T013 [US1] Implement Convert(text, alphabetName) function in internal/converter/converter.go
+- [x] T014 [US1] Add case-insensitive character normalization in converter
+- [x] T015 [US1] Implement word boundary detection (spaces create output groupings) in converter
+- [x] T016 [US1] Handle non-letter characters (skip silently) in converter
+- [x] T017 [US1] Wire converter to Cobra command args in cmd/root.go
+- [x] T018 [US1] Implement plain-text output formatter in internal/output/formatter.go
+- [x] T019 [US1] Add integration test for CLI invocation in cmd/root_test.go
 
-**Checkpoint**: `nato hello` outputs "Hotel Echo Lima Lima Oscar" (plain text)
+**Checkpoint**: `nato hello` outputs "Hotel Echo Lima Lima Oscar" (plain text) - PASSED
 
 ---
 
@@ -76,19 +76,19 @@
 
 ### Tests for User Story 2
 
-- [ ] T020 [P] [US2] Unit tests for color output enable/disable logic in internal/output/output_test.go
-- [ ] T021 [P] [US2] Unit tests for TTY detection behavior in internal/output/output_test.go
+- [x] T020 [P] [US2] Unit tests for color output enable/disable logic in internal/output/output_test.go
+- [x] T021 [P] [US2] Unit tests for TTY detection behavior in internal/output/output_test.go
 
 ### Implementation for User Story 2
 
-- [ ] T022 [US2] Implement ColorFormatter with fatih/color in internal/output/color.go
-- [ ] T023 [US2] Add TTY detection (auto-disable colors when not terminal) in internal/output/color.go
-- [ ] T024 [US2] Add NO_COLOR environment variable support in internal/output/color.go
-- [ ] T025 [US2] Add --no-color flag to Cobra command in cmd/root.go
-- [ ] T026 [US2] Implement alternating colors for visual distinction in internal/output/color.go
+- [x] T022 [US2] Implement ColorFormatter with fatih/color in internal/output/formatter.go
+- [x] T023 [US2] Add TTY detection (auto-disable colors when not terminal) in internal/output/formatter.go
+- [x] T024 [US2] Add NO_COLOR environment variable support in internal/output/formatter.go
+- [x] T025 [US2] Add --no-color flag to Cobra command in cmd/root.go
+- [x] T026 [US2] Implement alternating colors for visual distinction in internal/output/formatter.go
 - [ ] T027 [US2] Add golden file test for colored output in internal/output/output_test.go with testdata/colored.golden
 
-**Checkpoint**: Colors display in terminal, auto-disabled when piped
+**Checkpoint**: Colors display in terminal, auto-disabled when piped - PASSED
 
 ---
 
@@ -106,14 +106,14 @@
 
 ### Implementation for User Story 3
 
-- [ ] T031 [P] [US3] Add LAPD alphabet data in internal/alphabet/lapd.go
-- [ ] T032 [P] [US3] Add Western Union alphabet data in internal/alphabet/western_union.go
-- [ ] T033 [P] [US3] Add German alphabet data (including Ä, Ö, Ü) in internal/alphabet/german.go
-- [ ] T034 [US3] Add --alphabet/-a flag to Cobra command in cmd/root.go
-- [ ] T035 [US3] Add --list-alphabets/-l flag with formatted output in cmd/root.go
-- [ ] T036 [US3] Implement helpful error message for invalid alphabet names in cmd/root.go
+- [x] T031 [P] [US3] Add LAPD alphabet data in internal/alphabet/lapd.go
+- [x] T032 [P] [US3] Add Western Union alphabet data in internal/alphabet/western_union.go
+- [x] T033 [P] [US3] Add German alphabet data (including Ä, Ö, Ü) in internal/alphabet/german.go
+- [x] T034 [US3] Add --alphabet/-a flag to Cobra command in cmd/root.go
+- [x] T035 [US3] Add --list-alphabets/-l flag with formatted output in cmd/root.go
+- [x] T036 [US3] Implement helpful error message for invalid alphabet names in cmd/root.go
 
-**Checkpoint**: All four alphabets work; --list-alphabets shows available options
+**Checkpoint**: All four alphabets work; --list-alphabets shows available options - PASSED
 
 ---
 
@@ -130,11 +130,11 @@
 
 ### Implementation for User Story 4
 
-- [ ] T039 [US4] Detect stdin pipe (check if stdin is terminal) in cmd/root.go
-- [ ] T040 [US4] Read input from stdin when no args provided and stdin is pipe in cmd/root.go
-- [ ] T041 [US4] Show help when no args AND no piped input in cmd/root.go
+- [x] T039 [US4] Detect stdin pipe (check if stdin is terminal) in cmd/root.go
+- [x] T040 [US4] Read input from stdin when no args provided and stdin is pipe in cmd/root.go
+- [x] T041 [US4] Show help when no args AND no piped input in cmd/root.go
 
-**Checkpoint**: `echo "test" | nato` works; `nato` alone shows help
+**Checkpoint**: `echo "test" | nato` works; `nato` alone shows help - PASSED
 
 ---
 
@@ -146,13 +146,13 @@
 
 ### Implementation for User Story 5
 
-- [ ] T042 [P] [US5] Create release-please-config.json with Go strategy
-- [ ] T043 [P] [US5] Create .release-please-manifest.json with initial version "0.0.0"
-- [ ] T044 [P] [US5] Create .goreleaser.yaml with multi-platform builds and brew config
-- [ ] T045 [P] [US5] Create .github/workflows/release-please.yml for release PR automation
-- [ ] T046 [P] [US5] Create .github/workflows/release.yml triggered on release publish for GoReleaser
-- [ ] T047 [US5] Add --version flag using Cobra's built-in version support in cmd/root.go
-- [ ] T048 [US5] Add ldflags in .goreleaser.yaml to embed version from release-please
+- [x] T042 [P] [US5] Create release-please-config.json with Go strategy
+- [x] T043 [P] [US5] Create .release-please-manifest.json with initial version "0.0.0"
+- [x] T044 [P] [US5] Create .goreleaser.yaml with multi-platform builds and brew config
+- [x] T045 [P] [US5] Create .github/workflows/release-please.yml for release PR automation
+- [x] T046 [P] [US5] Create .github/workflows/release.yml triggered on release publish for GoReleaser
+- [x] T047 [US5] Add --version flag using Cobra's built-in version support in cmd/root.go
+- [x] T048 [US5] Add ldflags in .goreleaser.yaml to embed version from release-please
 - [ ] T049 [US5] Create dreamiurg/homebrew-tap repository (manual step - document in README)
 
 **Checkpoint**: CI creates release PRs; merging triggers binary builds and Homebrew formula update
@@ -163,12 +163,12 @@
 
 **Purpose**: Documentation, final tests, and cleanup
 
-- [ ] T050 [P] Write README.md with installation, usage examples, and alphabet list
-- [ ] T051 [P] Add CHANGELOG.md placeholder (release-please will maintain it)
-- [ ] T052 Run `go test -cover ./...` and verify 80%+ coverage
-- [ ] T053 Run `go vet ./...` and fix any issues
-- [ ] T054 Run `gofmt -w .` to ensure consistent formatting
-- [ ] T055 Validate quickstart.md scenarios work end-to-end
+- [x] T050 [P] Write README.md with installation, usage examples, and alphabet list
+- [x] T051 [P] Add CHANGELOG.md placeholder (release-please will maintain it)
+- [x] T052 Run `go test -cover ./...` and verify 80%+ coverage
+- [x] T053 Run `go vet ./...` and fix any issues
+- [x] T054 Run `gofmt -w .` to ensure consistent formatting
+- [x] T055 Validate quickstart.md scenarios work end-to-end
 - [ ] T056 Create initial commit with conventional commit message: `feat: initial nato CLI implementation`
 
 ---

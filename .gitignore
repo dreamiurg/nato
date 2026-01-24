@@ -1,1 +1,18 @@
+# OS
 .DS_Store
+Thumbs.db
+
+# Go
+nato
+*.exe
+*.test
+*.out
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Build
+dist/
