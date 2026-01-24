@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/dreamiurg/nato/compare/v1.1.0...v1.2.0) (2026-01-24)
+
+
+### Features
+
+* add GitHub repository hygiene settings specification ([#5](https://github.com/dreamiurg/nato/issues/5)) ([a96274f](https://github.com/dreamiurg/nato/commit/a96274f8e31f9bbf724a11c4200e203b6608ee04))
+
 ## [1.1.0](https://github.com/dreamiurg/nato/compare/v1.0.0...v1.1.0) (2026-01-24)
 
 
