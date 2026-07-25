@@ -19,13 +19,13 @@ jobs:
 
       - name: Enable auto-merge for patch updates
         if: steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'
-        run: gh pr merge --auto --merge "${{ github.event.pull_request.html_url }}"
+        run: gh pr merge --auto --squash "${{ github.event.pull_request.html_url }}"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Enable auto-merge for minor updates
         if: steps.dependabot-metadata.outputs.update-type == 'version-update:semver-minor'
-        run: gh pr merge --auto --merge "${{ github.event.pull_request.html_url }}"
+        run: gh pr merge --auto --squash "${{ github.event.pull_request.html_url }}"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
