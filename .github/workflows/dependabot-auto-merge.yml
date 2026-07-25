@@ -19,18 +19,22 @@ jobs:
 
       - name: Enable auto-merge for patch updates
         if: steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'
-        run: gh pr merge --auto --squash "${{ github.event.pull_request.html_url }}"
+        run: gh pr merge --auto --squash "$PR_URL"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          PR_URL: "${{ github.event.pull_request.html_url }}"
 
       - name: Enable auto-merge for minor updates
         if: steps.dependabot-metadata.outputs.update-type == 'version-update:semver-minor'
-        run: gh pr merge --auto --squash "${{ github.event.pull_request.html_url }}"
+        run: gh pr merge --auto --squash "$PR_URL"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          PR_URL: "${{ github.event.pull_request.html_url }}"
 
       - name: Log major update (requires manual review)
         if: steps.dependabot-metadata.outputs.update-type == 'version-update:semver-major'
         run: |
-          echo "::notice::Major version update detected for ${{ steps.dependabot-metadata.outputs.dependency-names }}"
+          echo "::notice::Major version update detected for $DEPENDENCY_NAMES"
           echo "This PR requires manual review before merging."
+        env:
+          DEPENDENCY_NAMES: "${{ steps.dependabot-metadata.outputs.dependency-names }}"
