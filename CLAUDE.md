@@ -1,11 +1,8 @@
 # nato Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-01-24
+Auto-generated from all feature plans. Last updated: 2026-08-01
 
 ## Active Technologies
-- YAML configuration files (GitHub Actions, Dependabot) + GitHub Dependabot, GitHub Actions, `dependabot/fetch-metadata` action (002-auto-dependabot)
-- N/A (configuration only) (002-auto-dependabot)
-
 - Go 1.21+ + spf13/cobra (CLI), fatih/color (terminal colors) (001-nato-cli)
 
 ## Project Structure
